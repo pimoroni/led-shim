@@ -105,11 +105,7 @@ class Matrix:
         # Disable audio sync
         self.i2c.write_i2c_block_data(self.address, _AUDIOSYNC_REGISTER, [0])
 
-        # Switch to bank 1 ( frame 1 )
-        self._bank(1)
-
-        # Enable LEDs
-        self.i2c.write_i2c_block_data(self.address, 0x00, [
+        enable_pattern = [
             0b00000000, 0b10111111,
             0b00111110, 0b00111110,
             0b00111111, 0b10111110,
@@ -119,23 +115,19 @@ class Matrix:
             0b00111111, 0b10111110,
             0b01111111, 0b11111110,
             0b01111111, 0b00000000,
-        ])
+        ]
+
+        # Switch to bank 1 ( frame 1 )
+        self._bank(1)
+ 
+        # Enable LEDs
+        self.i2c.write_i2c_block_data(self.address, 0x00, enable_pattern)
 
         # Switch to bank 0 ( frame 0 )
         self._bank(0)
 
         # Enable LEDs
-        self.i2c.write_i2c_block_data(self.address, 0x00, [
-            0b00000000, 0b10111111,
-            0b00111110, 0b00111110,
-            0b00111111, 0b10111110,
-            0b00000111, 0b10000110,
-            0b00110000, 0b00110000,
-            0b00111111, 0b10111110,
-            0b00111111, 0b10111110,
-            0b01111111, 0b11111110,
-            0b01111111, 0b00000000,
-        ])
+        self.i2c.write_i2c_block_data(self.address, 0x00, enable_pattern)
 
         atexit.register(self._exit)
 
@@ -353,7 +345,7 @@ class LEDSHIM(Matrix):
          (10, 91, 107),
          (11, 92, 108),
          (12, 76, 109),
-         (13, 77, 110),
+         (13, 77, 93),
         ]
         return lookup[x][rgb]
 
