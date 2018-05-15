@@ -3,7 +3,7 @@ from . import is31fl3731
 
 __version__ = '0.0.1'
 
-display = is31fl3731.LEDSHIM(None, gamma_table=is31fl3731.LED_GAMMA)
+display = is31fl3731.LEDSHIM(None, address=0x75, gamma_table=is31fl3731.LED_GAMMA)
 
 DISPLAY_HEIGHT = display._height
 DISPLAY_WIDTH = display._width
