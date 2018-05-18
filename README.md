@@ -1,7 +1,7 @@
-![LED SHIM](led-shim-logo.png)
+# LED SHIM
 https://shop.pimoroni.com/products/led-shim
 
-17x7 pixels of single-colour, brightness-controlled, message scrolling goodness!
+28 tiny RGB LED pixels in a single row that just slip right onto your Pi's pins, no soldering required! LED SHIM is ideal for status updates, notifications, a VU meter, or as a bar graph for sensor readings.
 
 ## Installing
 
