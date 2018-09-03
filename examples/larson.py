@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import time
-import math
 
 import ledshim
 
@@ -23,7 +22,7 @@ while True:
     offset = int(abs((delta % len(REDS)) - ledshim.NUM_PIXELS))
 
     for i in range(ledshim.NUM_PIXELS):
-        ledshim.set_pixel(i , REDS[offset + i], 0, 0)
+        ledshim.set_pixel(i, REDS[offset + i], 0, 0)
 
     ledshim.show()
 

@@ -1,4 +1,10 @@
 # LED SHIM
+
+[![Build Status](https://travis-ci.com/pimoroni/led-shim.svg?branch=master)](https://travis-ci.com/pimoroni/led-shim)
+[![Coverage Status](https://coveralls.io/repos/github/pimoroni/led-shim/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/led-shim?branch=master)
+[![PyPi Package](https://img.shields.io/pypi/v/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
+[![Python Versions](https://img.shields.io/pypi/pyversions/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
+
 https://shop.pimoroni.com/products/led-shim
 
 28 tiny RGB LED pixels in a single row that just slip right onto your Pi's pins, no soldering required! LED SHIM is ideal for status updates, notifications, a VU meter, or as a bar graph for sensor readings.

@@ -7,6 +7,7 @@ import ledshim
 
 ledshim.set_clear_on_exit()
 
+
 def get_cpu_temperature():
     process = Popen(['vcgencmd', 'measure_temp'], stdout=PIPE)
     output, _error = process.communicate()
@@ -18,6 +19,7 @@ def get_cpu_temperature():
     temp = float(output[pos_start:pos_end])
 
     return temp
+
 
 def show_graph(v, r, g, b):
     v *= ledshim.NUM_PIXELS
@@ -31,6 +33,7 @@ def show_graph(v, r, g, b):
         v -= 1
 
     ledshim.show()
+
 
 ledshim.set_brightness(0.6)
 

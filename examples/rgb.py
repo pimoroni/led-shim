@@ -2,12 +2,13 @@
 
 import sys
 
-import ledshim 
+import ledshim
 
 
 def usage():
-    print("Usage: {} <r> <g> <b>".format(sys.argv[0]))
+    print('Usage: {} <r> <g> <b>'.format(sys.argv[0]))
     sys.exit(1)
+
 
 if len(sys.argv) != 4:
     usage()
@@ -22,7 +23,7 @@ except ValueError:
 if max(r, g, b) > 255:
     usage()
 
-print("Setting Blinkt to {r},{g},{b}".format(r=r, g=g, b=b))
+print('Setting Blinkt to {r},{g},{b}'.format(r=r, g=g, b=b))
 
 ledshim.set_clear_on_exit(False)
 

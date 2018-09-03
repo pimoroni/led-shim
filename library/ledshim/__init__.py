@@ -1,4 +1,4 @@
-from sys import version_info
+"""LED SHIM 28-pixel RGB LED display."""
 from . import is31fl3731
 
 __version__ = '0.0.1'
@@ -21,14 +21,14 @@ get_buffer_shape = display.get_shape
 get_shape = display.get_shape
 set_clear_on_exit = display.set_clear_on_exit
 
+
 def set_multiple_pixels(indexes, from_colour, to_colour=None):
-    """Set multiple pixels to a range of colours sweeping from from_colour to to_colour
+    """Set multiple pixels to a range of colours sweeping from from_colour to to_colour.
 
     :param from_colour: A tuple with 3 values representing the red, green and blue of the first colour
     :param to_colour: A tuple with 3 values representing the red, green and blue of the second colour
 
     """
-
     if to_colour is None:
         to_colour = from_colour
 
