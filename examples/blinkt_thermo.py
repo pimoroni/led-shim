@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-#Data from OpenWeatherMap
-#show_graph function adapted from cpu_temp.py
+# Data from OpenWeatherMap
+# show_graph function adapted from cpu_temp.py
 
 from time import sleep
 from sys import exit
@@ -9,19 +9,20 @@ from sys import exit
 try:
     import requests
 except ImportError:
-    exit("This script requires the requests module\nInstall with: sudo pip install requests")
+    exit('This script requires the requests module\nInstall with: sudo pip install requests')
 
 import ledshim
 
 
-#Grab your API key here: http://openweathermap.org
-#List of city ID city.list.json.gz can be downloaded here http://bulk.openweathermap.org/sample/
-API_KEY=''
-CITY_ID=''
+# Grab your API key here: http://openweathermap.org
+# List of city ID city.list.json.gz can be downloaded here http://bulk.openweathermap.org/sample/
+API_KEY = ''
+CITY_ID = ''
 
 url = 'http://api.openweathermap.org/data/2.5/weather'
 
 temp = 0
+
 
 def update_weather():
     payload = {
@@ -33,9 +34,10 @@ def update_weather():
     try:
         r = requests.get(url=url, params=payload)
         temp = r.json().get('main').get('temp')
-        print("Temperture = "+str(temp)+" C")
-    except:
-        print("Connection Error")
+        print('Temperture = ' + str(temp) + ' C')
+    except (requests.ConnectionError, requests.ConnectTimeout):
+        print('Connection Error')
+
 
 def show_graph(v, r, g, b):
     v *= ledshim.NUM_PIXELS
@@ -48,11 +50,13 @@ def show_graph(v, r, g, b):
         v -= 1
     ledshim.show()
 
+
 def draw_thermo(temp):
     v = temp
     v /= 40
-    v += (1/8)
+    v += (1 / 8)
     show_graph(v, 255, 0, 0)
+
 
 ledshim.set_brightness(0.1)
 

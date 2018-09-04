@@ -6,11 +6,12 @@ from sys import exit
 try:
     import psutil
 except ImportError:
-    exit("This script requires the psutil module\nInstall with: sudo pip install psutil")
+    exit('This script requires the psutil module\nInstall with: sudo pip install psutil')
 
 import ledshim
 
 ledshim.set_clear_on_exit()
+
 
 def show_graph(v, r, g, b):
     v *= ledshim.NUM_PIXELS
@@ -23,6 +24,7 @@ def show_graph(v, r, g, b):
         v -= 1
 
     ledshim.show()
+
 
 ledshim.set_brightness(0.6)
 

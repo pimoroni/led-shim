@@ -7,11 +7,12 @@ from sys import exit
 try:
     import numpy as np
 except ImportError:
-    exit("This script requires the numpy module\nInstall with: sudo pip install numpy")
+    exit('This script requires the numpy module\nInstall with: sudo pip install numpy')
 
 import ledshim
 
 ledshim.set_clear_on_exit()
+
 
 def make_gaussian(fwhm):
     x = np.arange(0, ledshim.NUM_PIXELS, 1, float)
@@ -21,9 +22,10 @@ def make_gaussian(fwhm):
     gauss = np.exp(-4 * np.log(2) * ((x - x0) ** 2 + (y - y0) ** 2) / fwhm ** 2)
     return gauss
 
+
 while True:
     for z in list(range(1, 10)[::-1]) + list(range(1, 10)):
-        fwhm = 15.0/z
+        fwhm = 15.0 / z
         gauss = make_gaussian(fwhm)
         start = time.time()
         y = 4
