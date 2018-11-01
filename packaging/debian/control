@@ -1,6 +1,6 @@
-Source: scrollphathd
+Source: ledshim
 Maintainer: Phil Howard <phil@pimoroni.com>
-Homepage: https://github.com/pimoroni/scroll-phat-hd
+Homepage: https://github.com/pimoroni/led-shim
 Section: python
 Priority: extra
 Build-Depends: debhelper (>= 9.0.0), dh-python, python-all (>= 2.7), python-setuptools, python3-all (>= 3.4), python3-setuptools
@@ -8,26 +8,24 @@ Standards-Version: 3.9.6
 X-Python-Version: >= 2.7
 X-Python3-Version: >= 3.4
 
-Package: python-scrollphathd
+Package: python-ledshim
 Architecture: all
 Section: python
-Depends: ${misc:Depends}, ${python:Depends}, python-smbus, python-numpy
+Depends: ${misc:Depends}, ${python:Depends}, python-smbus
 Suggests: i2c-tools, python-psutil
-Description: Python library for the Pimoroni Scroll pHAT HD.
- Scroll pHAT HD provides a matrix of 119, brightness controlled,
- white LED pixels.
- It's ideal for writing messages, showing graphs, and drawing pictures.
+Description: Python library for the Pimoroni LED SHIM.
+ LED SHIM tucks 28 RGB LEDs underneath a HAT or pHAT,
+ it's ideal for showing notifications, patterns, or anything else!
  .
  This is the Python 2 version of the package.
 
-Package: python3-scrollphathd
+Package: python3-ledshim
 Architecture: all
 Section: python
-Depends: ${misc:Depends}, ${python3:Depends}, python3-smbus, python3-numpy
+Depends: ${misc:Depends}, ${python3:Depends}, python3-smbus
 Suggests: i2c-tools, python3-psutil
-Description: Python library for the Pimoroni Scroll pHAT HD.
- Scroll pHAT HD provides a matrix of 119, brightness controlled,
- white LED pixels.
- It's ideal for writing messages, showing graphs, and drawing pictures.
+Description: Python library for the Pimoroni LED SHIM.
+ LED SHIM tucks 28 RGB LEDs underneath a HAT or pHAT,
+ it's ideal for showing notifications, patterns, or anything else!
  .
  This is the Python 3 version of the package.
