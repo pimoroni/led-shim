@@ -53,3 +53,8 @@ Get The Display Size
 
 .. automethod:: ledshim.is31fl3731.Matrix.get_shape
    :noindex:
+
+Set Multiple Pixels
+-------------------
+
+.. autofunction:: ledshim.set_multiple_pixels

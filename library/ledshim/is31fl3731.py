@@ -247,12 +247,7 @@ class Matrix:
         return (self._width, self._height)
 
     def show(self):
-        """Show the buffer contents on the display.
-
-        The buffer is copied, then  scrolling, rotation and flip y/x
-        transforms applied before taking a 17x7 slice and displaying.
-
-        """
+        """Show the buffer contents on the display."""
         self.setup()
 
         next_frame = 0 if self._current_frame == 1 else 0
