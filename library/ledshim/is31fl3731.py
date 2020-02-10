@@ -229,7 +229,7 @@ class Matrix:
 
         for c in (r, g, b):
             if c > 255 or c < 0:
-                raise ValueError('Value {} out of range. RGB values should be between 0 and 1'.format(c))
+                raise ValueError('Value {} out of range. RGB values should be between 0 and 255'.format(c))
 
         try:
             self.buf[x] = r, g, b, brightness
