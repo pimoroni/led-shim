@@ -8,7 +8,7 @@ r, g, b = 255, 0, 0
 
 delay = 0.1
 
-half_way = ledshim.NUM_PIXELS / 2
+half_way = ledshim.NUM_PIXELS // 2
 
 while True:
     # Turn pixels on
