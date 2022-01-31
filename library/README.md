@@ -47,3 +47,17 @@ In all cases you will have to enable the i2c bus.
 * Function reference - http://docs.pimoroni.com/ledshim/
 * GPIO Pinout - https://pinout.xyz/pinout/led_shim
 * Get help - http://forums.pimoroni.com/c/support
+
+# Changelog
+0.0.2
+-----
+
+* Add `set_multiple_pixels`
+* Updated packaging
+* Linting & minor improvements to docstrings
+
+0.0.1
+-----
+
+* Initial release
+
