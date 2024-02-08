@@ -5,7 +5,6 @@ import time
 
 import ledshim
 
-
 ledshim.set_clear_on_exit()
 
 

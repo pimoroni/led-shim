@@ -1,6 +1,6 @@
 """Driver for the IS31FL3731."""
-import time
 import atexit
+import time
 from sys import version_info
 
 try:

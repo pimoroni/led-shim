@@ -1,5 +1,6 @@
-import mock
 import sys
+
+import mock
 
 
 def test_setup():
