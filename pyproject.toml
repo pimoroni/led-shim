@@ -109,7 +109,7 @@ ignore = [
     'requirements-dev.txt'
 ]
 
-[pimoroni]
+[tool.pimoroni]
 apt_packages = []
 configtxt = []
 commands = []
