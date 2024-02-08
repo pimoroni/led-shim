@@ -11,7 +11,6 @@ except ImportError:
 
 import ledshim
 
-
 ledshim.clear()
 start = 0
 end = 60

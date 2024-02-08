@@ -1,7 +1,7 @@
 """LED SHIM 28-pixel RGB LED display."""
 from . import is31fl3731
 
-__version__ = '0.0.2'
+__version__ = "0.0.2"
 
 display = is31fl3731.LEDSHIM(None, address=0x75, gamma_table=is31fl3731.LED_GAMMA)
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-import ledshim
 import time
+
+import ledshim
 
 # Just green
 print('Green')

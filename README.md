@@ -1,9 +1,9 @@
 # LED SHIM
 
-[![Build Status](https://travis-ci.com/pimoroni/led-shim.svg?branch=master)](https://travis-ci.com/pimoroni/led-shim)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pimoroni/led-shim/test.yml?branch=main)](https://github.com/pimoroni/led-shim/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/pimoroni/led-shim/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/led-shim?branch=master)
 [![PyPi Package](https://img.shields.io/pypi/v/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
-[![Python Versions](https://img.shields.io/pypi/pyversions/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
+[![Python Versions](https://img.shields.io/pypi/pyversions/ledshim.svg)](https://pypi.python.org/pypi/led-shim)
 
 https://shop.pimoroni.com/products/led-shim
 
@@ -14,21 +14,16 @@ https://shop.pimoroni.com/products/led-shim
 ### Full install (recommended):
 
 We've created an easy installation script that will install all pre-requisites and get your LED SHIM
-up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal
-on your Raspberry Pi desktop, as illustrated below:
+up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal on your Raspberry Pi desktop, as illustrated below:
 
 ![Finding the terminal](http://get.pimoroni.com/resources/github-repo-terminal.png)
 
 In the new terminal window type the command exactly as it appears below (check for typos) and follow the on-screen instructions:
 
 ```bash
-curl https://get.pimoroni.com/ledshim | bash
-```
-
-### Manual install:
-
-```bash
-python3 -m pip install ledshim
+git clone https://github.com/pimoroni/led-shim
+cd led-shim
+./install
 ```
 
 ### Development:
@@ -36,10 +31,14 @@ python3 -m pip install ledshim
 If you want to contribute, or like living on the edge of your seat by having the latest code, you should clone this repository, `cd` to the library directory, and run:
 
 ```bash
-python3 setup.py install
+./install --unstable
 ```
 
-In all cases you will have to enable the i2c bus.
+In all cases you will have to enable the i2c bus:
+
+```
+sudo raspi-config nonint do_i2c 0
+```
 
 ## Documentation & Support
 

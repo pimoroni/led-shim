@@ -1,16 +1,9 @@
 """Driver for the IS31FL3731."""
-import time
+
 import atexit
-from sys import version_info
+import time
 
-try:
-    import smbus
-except ImportError:
-    if version_info[0] < 3:
-        raise ImportError('This library requires python-smbus\nInstall with: sudo apt-get install python-smbus')
-    elif version_info[0] == 3:
-        raise ImportError('This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus')
-
+import smbus2
 
 _MODE_REGISTER = 0x00
 _FRAME_REGISTER = 0x01
@@ -20,12 +13,12 @@ _BLINK_REGISTER = 0x05
 _AUDIOSYNC_REGISTER = 0x06
 _BREATH1_REGISTER = 0x08
 _BREATH2_REGISTER = 0x09
-_SHUTDOWN_REGISTER = 0x0a
-_GAIN_REGISTER = 0x0b
-_ADC_REGISTER = 0x0c
+_SHUTDOWN_REGISTER = 0x0A
+_GAIN_REGISTER = 0x0B
+_ADC_REGISTER = 0x0C
 
-_CONFIG_BANK = 0x0b
-_BANK_ADDRESS = 0xfd
+_CONFIG_BANK = 0x0B
+_BANK_ADDRESS = 0xFD
 
 _PICTURE_MODE = 0x00
 _AUTOPLAY_MODE = 0x08
@@ -91,17 +84,17 @@ class Matrix:
 
         if self.i2c is None:
             try:
-                self.i2c = smbus.SMBus(1)
+                self.i2c = smbus2.SMBus(1)
             except IOError as e:
-                if hasattr(e, 'errno') and e.errno == 2:
-                    e.strerror += '\n\nMake sure you\'ve enabled i2c in your Raspberry Pi configuration.\n'
+                if hasattr(e, "errno") and e.errno == 2:
+                    e.strerror += "\n\nMake sure you've enabled i2c in your Raspberry Pi configuration.\n"
                 raise e
 
         try:
             self._reset()
         except IOError as e:
-            if hasattr(e, 'errno') and e.errno == 5:
-                e.strerror += '\n\nMake sure your LED SHIM is attached, and double-check your soldering.\n'
+            if hasattr(e, "errno") and e.errno == 5:
+                e.strerror += "\n\nMake sure your LED SHIM is attached, and double-check your soldering.\n"
             raise e
 
         self.show()
@@ -182,7 +175,7 @@ class Matrix:
 
         """
         if len(gamma_table) != 256:
-            raise ValueError('Gamma table must be a list with 256 values.')
+            raise ValueError("Gamma table must be a list with 256 values.")
 
         self._gamma_table = gamma_table
 
@@ -229,13 +222,13 @@ class Matrix:
 
         for c in (r, g, b):
             if c > 255 or c < 0:
-                raise ValueError('Value {} out of range. RGB values should be between 0 and 255'.format(c))
+                raise ValueError(f"Value {c} out of range. RGB values should be between 0 and 255")
 
         try:
             self.buf[x] = r, g, b, brightness
 
         except IndexError:
-            raise ValueError('x position ({}) is out of range!'.format(x))
+            raise ValueError(f"x position ({x}) is out of range!")
 
     def get_shape(self):
         """Get the size/shape of the display.
@@ -286,7 +279,7 @@ class Matrix:
             return self._current_frame
 
         if not 0 <= frame <= 8:
-            raise ValueError('Frame out of range: 0-8')
+            raise ValueError("Frame out of range: 0-8")
 
         self._current_frame = frame
 
@@ -309,9 +302,9 @@ class Matrix:
 
         self.i2c.write_i2c_block_data(self.address, register, [value])
 
-    def _chunk(self, l, n):
-        for i in range(0, len(l) + 1, n):
-            yield l[i:i + n]
+    def _chunk(self, data, length):
+        for i in range(0, len(data) + 1, length):
+            yield data[i : i + length]
 
     def _pixel_addr(self, x, y):
         return x + y * 16

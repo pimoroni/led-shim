@@ -2,7 +2,6 @@ import time
 
 import ledshim
 
-
 for x in range(ledshim.width):
     ledshim.set_pixel(x,255,0,0)
     ledshim.show()

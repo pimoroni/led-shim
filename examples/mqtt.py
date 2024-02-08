@@ -9,7 +9,6 @@ except ImportError:
 
 import ledshim
 
-
 MQTT_SERVER = 'iot.eclipse.org'
 MQTT_PORT = 1883
 MQTT_TOPIC = 'pimoroni/ledshim'

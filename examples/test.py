@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import time
+
 import ledshim
 
 for col in ((255, 0, 0), (0, 255, 0), (0, 0, 255)):
