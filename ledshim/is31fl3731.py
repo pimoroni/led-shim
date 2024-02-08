@@ -1,16 +1,9 @@
 """Driver for the IS31FL3731."""
+
 import atexit
 import time
-from sys import version_info
 
-try:
-    import smbus
-except ImportError:
-    if version_info[0] < 3:
-        raise ImportError('This library requires python-smbus\nInstall with: sudo apt-get install python-smbus')
-    elif version_info[0] == 3:
-        raise ImportError('This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus')
-
+import smbus2
 
 _MODE_REGISTER = 0x00
 _FRAME_REGISTER = 0x01
@@ -91,7 +84,7 @@ class Matrix:
 
         if self.i2c is None:
             try:
-                self.i2c = smbus.SMBus(1)
+                self.i2c = smbus2.SMBus(1)
             except IOError as e:
                 if hasattr(e, "errno") and e.errno == 2:
                     e.strerror += "\n\nMake sure you've enabled i2c in your Raspberry Pi configuration.\n"
