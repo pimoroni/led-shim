@@ -1,3 +1,9 @@
+0.0.3
+-----
+
+* Repackage to hatch/pyproject
+* Switch to smbus2
+
 0.0.2
 -----
 
