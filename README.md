@@ -1,9 +1,9 @@
 # LED SHIM
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/pimoroni/led-shim/test.yml?branch=main)](https://github.com/pimoroni/led-shim/actions/workflows/test.yml)
-[![Coverage Status](https://coveralls.io/repos/github/pimoroni/led-shim/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/led-shim?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/pimoroni/led-shim/badge.svg?branch=main)](https://coveralls.io/github/pimoroni/led-shim?branch=main)
 [![PyPi Package](https://img.shields.io/pypi/v/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
-[![Python Versions](https://img.shields.io/pypi/pyversions/ledshim.svg)](https://pypi.python.org/pypi/led-shim)
+[![Python Versions](https://img.shields.io/pypi/pyversions/ledshim.svg)](https://pypi.python.org/pypi/ledshim)
 
 https://shop.pimoroni.com/products/led-shim
 
@@ -23,7 +23,7 @@ In the new terminal window type the command exactly as it appears below (check f
 ```bash
 git clone https://github.com/pimoroni/led-shim
 cd led-shim
-./install
+./install.sh
 ```
 
 ### Development:
@@ -31,7 +31,7 @@ cd led-shim
 If you want to contribute, or like living on the edge of your seat by having the latest code, you should clone this repository, `cd` to the library directory, and run:
 
 ```bash
-./install --unstable
+./install.sh --unstable
 ```
 
 In all cases you will have to enable the i2c bus:
